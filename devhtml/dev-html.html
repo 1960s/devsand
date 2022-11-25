@@ -1,0 +1,29 @@
+<link rel="stylesheet"  href="devhtml.css">
+<script  src="html-var.js"></script>
+<script  src="html-main.js"></script>
+
+<button onclick="buttonGen()" id="gen">texthere</button>
+<!-- <button onclick="showLong()" >Longhand Buttons</button> -->
+
+<br>
+<br>
+
+<span id="code"></span>
+
+<script>
+    //tabs generator
+  function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }  
+  
+  </script>

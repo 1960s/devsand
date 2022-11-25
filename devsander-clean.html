@@ -1,0 +1,184 @@
+
+<html lang="en">
+  <head>
+<!--page title-->
+        <title>DevSand</title>
+        
+<!--scaling definition allows page to fit to mobile devices and smaller browser windows-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+<!--site info search engine-->
+        <meta charset="utf-8"> 
+        <meta name="author" content="DevSand">
+        <meta name="description" content="A sandbox code editor & reference guide for budding web developers.">
+        
+<!--links-->
+      <!--codemirror links-->
+        <link href="index.css" rel="stylesheet">
+        <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+          <link rel="stylesheet" href="inlet/inlet.css" type="text/css" media="screen"  title="no title" charset="utf-8">
+
+<link rel="stylesheet" href="devcss2.css">
+<link rel="stylesheet" href="dropdown.css">
+<!-- <link rel="stylesheet" href="inlet/index.css" type="text/css" media="screen"  title="no title" charset="utf-8"> -->
+                
+        <script src="codemirror/lib/codemirror.js"></script>
+        <script src="codemirror/addon/edit/closetag.js"></script>
+        <script src="codemirror/mode/xml/xml.js"></script>
+        <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="codemirror/mode/css/css.js"></script>
+        <script src="codemirror/mode/javascript/javascript.js"></script>
+        <script src="codemirror/addon/edit/matchbrackets.js"></script>
+        <script src="codemirror/addon/edit/matchtags.js"></script>
+        <script src="codemirror/addon/fold/xml-fold.js"></script>
+              <script src="codemirror/addon/edit/closebrackets.js"></script>
+			        <script src="inlet/inlet.js"></script>
+
+
+      <!--toolbar links-->
+
+      
+  </head>
+    
+    
+<!--         
+ _______  _______ _________ _       
+(       )(  ___  )\__   __/( (    /|
+| () () || (   ) |   ) (   |  \  ( |
+| || || || (___) |   | |   |   \ | |
+| |(_)| ||  ___  |   | |   | (\ \) |
+| |   | || (   ) |   | |   | | \   |
+| )   ( || )   ( |___) (___| )  \  |
+|/     \||/     \|\_______/|/    )_)
+                                    
+-->
+    
+
+        
+   
+        <div class="flexer">
+         
+            
+            <div>
+                <textarea class="sizetextarea" id="myTextarea"></textarea>
+            </div>
+                <iframe class="sizeiframe" id="myIframe"></iframe>
+        </div>
+  
+
+         <!--
+         _______  _______  _______  _______  _______ _________
+        (  ____ \(  ___  )(  ____ )(       )(  ___  )\__   __/
+        | (    \/| (   ) || (    )|| () () || (   ) |   ) (   
+        | (__    | |   | || (____)|| || || || (___) |   | |   
+        |  __)   | |   | ||     __)| |(_)| ||  ___  |   | |   
+        | (      | |   | || (\ (   | |   | || (   ) |   | |   
+        | )      | (___) || ) \ \__| )   ( || )   ( |   | |   
+        |/       (_______)|/   \__/|/     \||/     \|   )_(         
+
+        -->        
+<div id="format">
+                
+        <div>
+        <button  id="enterMe" draggable="true" class=" repeater btnstyl drag" value="&#13;">ENTER</button>
+        <button  onclick="clearMe()" draggable="true" class=" formatbutton btnstyl drag">RESET</button>
+            |
+        <button  id="spaceMe" 
+   
+        draggable="true" class=" repeater btnstyl drag" value="&#32;">SPACE</button>
+            
+            
+            
+            
+<button onclick="deleteMe()" 
+onmousedown="back()" onmouseup="backStop()" onmouseout="backStop()" draggable="true" class=" formatbutton btnstyl drag" >BACKSPACE</button>
+           
+            |
+        <button  onclick="undoMe()" 
+        onmousedown="undoStart()" onmouseup="undoStop()" onmouseout="undoStop()" draggable="true" class=" formatbutton btnstyl drag">UNDO</button>
+        <button  onclick="redoMe()" 
+        onmousedown="redoStart()" onmouseup="redoStop()" onmouseout="redoStop()" draggable="true" class=" formatbutton btnstyl drag">REDO</button>   
+            |
+        <button  onclick="cutMe()" draggable="true" class=" formatbutton btnstyl drag">CUT</button>
+        <button  onclick="copyMe()" draggable="true" class=" formatbutton btnstyl drag">COPY</button> 
+        <button  onclick="pasteMe()" draggable="true" class=" formatbutton btnstyl drag">PASTE</button>   
+            |
+
+            
+        <!--
+         _______  _______  ______   _______   _________ _______  _______  _______ 
+        (  ____ \(  ___  )(  __  \ (  ____ \  \__   __/(  ___  )(  ____ \(  ____ \
+        | (    \/| (   ) || (  \  )| (    \/     ) (   | (   ) || (    \/| (    \/
+        | |      | |   | || |   ) || (__         | |   | (___) || |      | (_____ 
+        | |      | |   | || |   | ||  __)        | |   |  ___  || | ____ (_____  )
+        | |      | |   | || |   ) || (           | |   | (   ) || | \_  )      ) |
+        | (____/\| (___) || (__/  )| (____/\     | |   | )   ( || (___) |/\____) |
+        (_______/(_______)(______/ (_______/     )_(   |/     \|(_______)\_______)
+
+        -->    
+    
+            
+<button draggable="true" class=" formatbutton btnstyl drag" value="&#13;<style>&#13;&#13;</style>&#13;&#13;&#13;&#13;<script>&#13;&#13</script>&#13;">html</button>
+        <button draggable="true" class=" formatbutton btnstyl drag" value="&#13;<script>&#13;&#13;</script>&#13;">script</button>
+        <button draggable="true" class=" formatbutton btnstyl drag" value="&#13;<style>&#13;&#13;</style>&#13;">style</button>
+<button draggable="true" class=" formatbutton btnstyl drag" value=" &#123;&#13;&#13;&#125;">{ }</button>
+
+            |
+        <button draggable="true" class=" formatbutton btnstyl drag" value="&#13;<div>&#13;&#13;</div>&#13;">&lt;div&gt;</button>  
+        <button draggable="true" class=" formatbutton btnstyl drag" value="<span>texthere</span>">&lt;span&gt;</button>
+        <button draggable="true" class=" formatbutton btnstyl drag" value=" style=&#34;&#34;">inline style</button>
+            |
+
+         <!--
+         _______ _________ _        _______ _______ 
+        (  ____ \\__   __/( \      (  ____ \(  ____ \
+        | (    \/   ) (   | (      | (    \/| (    \/
+        | (__       | |   | |      | (__   | (_____ 
+        |  __)      | |   | |      |  __)  (_____  )
+        | (         | |   | |      | (           ) |
+        | )      ___) (___| (____/\| (____/Y\____) |
+        |/       \_______/(_______/(_______|_______)
+
+        -->  
+            
+        <button  onclick="selectAll()" draggable="true" class=" formatbutton btnstyl drag" >SELECT ALL</button>
+        <button  onclick="deselectAll()" draggable="true" class=" formatbutton btnstyl drag" >DESELECT ALL</button>
+            |        
+        <button  onclick="saveTextAsFile()" draggable="true" class=" formatbutton btnstyl drag">SAVE AS</button>
+            :
+            <input  id="nameMe" type="text">
+            .
+            <select id="extendMe">
+                <option>txt</option>
+                <option>html</option>
+                <option>css</option>
+                <option>js</option>
+                <option>json</option>
+              </select>  
+              |
+              <input class="btnstyl" onchange="loadfile(this)" type="file" >
+
+        </div>
+   
+  </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+    <script src="sandbonus.js"></script>
+    <script src="sandtext.js"></script>
+
+<script src="sandframe.js"></script><!-- -->
+    <script src="sandbuttons.js"></script>
+    <script src="sandbar.js"></script>
+
+
+
+</html>

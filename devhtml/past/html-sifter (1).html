@@ -1,0 +1,32 @@
+
+
+
+<textarea rows="14" cols="70" id="pudge"></textarea>
+<br>
+<textarea rows="20" cols="70" id="stamp"></textarea>
+<br>
+<button onclick="brush()">texthere</button>
+
+<script>
+  let stamp = document.getElementById("stamp")
+  let pudge = document.getElementById("pudge")
+
+
+  
+  function brush(){
+    let mooby=[]
+
+
+    
+    stamp.value = pudge
+      .value
+.replace(/^(\w+)/gm, `sub-class:$1`)
+.replace(/.*<div class="centerMe">(.*)<\/div>/gm, `class:$1`)
+.replace(/<button draggable="true" class=".*button drag" value="<(.*)>">&lt;(.*)&gt;<\/button>/gm, `tagValue:"<$1>"\ntagButton:"$2`)
+.replace(/<button draggable="true" class=".*button drag" value="&#13;(.*)&#13;">&lt;(.*)&gt;<\/button>/gm, `tagValue:"<$1>"\ntagButton:"$2`)
+.replace(/<div class="dropdown">\n<button.*value="(.*)">(.*)<.button>\n<div class="dropdown-content">/gm, `tagValue:"$1"\ntagButton:"$2"`)
+.replace(/<button.*value="(.*)">(.*)<.button>/gm, `attrValue:"$1"\nattrButton:$2`)
+.replace(/<div.*>|<\/div>/gm, "")
+  }
+
+</script>

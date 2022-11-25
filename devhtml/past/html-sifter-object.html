@@ -1,0 +1,29 @@
+
+
+
+<textarea rows="14" cols="70" id="pudge"></textarea>
+<br>
+<textarea rows="20" cols="70" id="stamp"></textarea>
+<br>
+<button onclick="brush()">texthere</button>
+
+<script>
+  let stamp = document.getElementById("stamp")
+  let pudge = document.getElementById("pudge")
+
+
+  
+  function brush(){
+    let mooby=[]
+
+
+    stamp.value = pudge
+      .value
+.replace(/<button draggable="true" class=".*button drag" value="<.*>">&lt;(.*)&gt;<\/button>/gm, `]\n},\n"<$1>":{\nattributes:[`)
+.replace(/<button draggable="true" class=".*button drag" value="&#13;.*&#13;">&lt;(.*)&gt;<\/button>/gm, `]\n},\n<$1>:{\nattributes:[`)
+.replace(/<button.*value=".*">(.*)<.button>/gm, `'$1',`)
+.replace(/<div.*>|<\/div>/gm, "")
+.replace(/^\s*/gm, "")
+  }
+  
+</script>

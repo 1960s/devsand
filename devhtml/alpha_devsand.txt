@@ -1,0 +1,22 @@
+DEVSAND
+
+add tab for converter and link to selected text in editor
+make function to clean value of button and place data types where needed, ex <number> is changed to 10
+fix transform origin, does not skip to new line as intended, must skip at the |
+
+
+
+unlisted in data types
+<hex-color>
+<indent>
+<declaration-value>
+
+	
+-webkit-border-before removed intefere with "color"
+font-variant, overscroll-behavior needs array of shorthand
+place-content and overflow do not have arrays
+mask and gap and text-emphasis also
+
+add status pictures in buttons, standard or experimental
+
+
